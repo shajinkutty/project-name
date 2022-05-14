@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Button</title>
+    <link rel="stylesheet" href="./src/styles.css" />
+    <script src="./src/script.js" defer></script>
+  </head>
+  <body>
+    <!-- BUTTON CONTAINER -->
+    <div class="btn-country-container">
+      <button class="btn-country active" id="contact-button">
+        <span class="text">INDIA</span>
+        <div class="img">
+          <img src="./image/india.png" alt="" />
+        </div>
+      </button>
+      <button class="btn-country" id="contact-button">
+        <span class="text">DUBAI</span>
+        <div class="img">
+          <img src="./image/uae.webp" alt="" />
+        </div>
+      </button>
+    </div>
+    <!-- BUTTON CONTAINER -->
+
+    <!-- CONTACT SECTION -->
+
+    <div class="cnctSctn">
+      <div class="cnctLi row">
+        <div class="cnctIcn"></div>
+        <div class="cnctCnt">
+          <div class="cnctHd">Visit us:</div>
+          <div class="cnctDtls" id="address">
+            A Division of Nucore Software Solutions<br />Fifth Floor, UL
+            CyberPark, Calicut, Kerala – 673016, India.
+          </div>
+          <!--<div class="cnctDtls">T P Complex, Nadapuram, Calicut-673504</div>-->
+        </div>
+      </div>
+      <div class="cnctLi row">
+        <div class="cnctIcn"></div>
+        <div class="cnctCnt">
+          <div class="cnctHd">Mail us:</div>
+          <div class="cnctDtls">info@skybookdigital.com</div>
+        </div>
+      </div>
+      <div class="cnctLi row">
+        <div class="cnctIcn"></div>
+        <div class="cnctCnt">
+          <div class="cnctHd">Call us:</div>
+          <div class="cnctDtls" id="contact">+91 9072324466</div>
+        </div>
+      </div>
+      <div class="cnctLi row">
+        <div class="sclmeda">
+          <div class="cnctHd">Follow us:</div>
+          <ul class="sclMda">
+            <li>
+              <a href="http://twitter.com/SkybookDigital" target="_blank"></a>
+            </li>
+            <li>
+              <a
+                href="http://www.linkedin.com/company/skybookdigital"
+                target="_blank"
+              ></a>
+            </li>
+            <li>
+              <a
+                href="https://www.facebook.com/skybookdigital"
+                target="_blank"
+              ></a>
+            </li>
+            <li>
+              <a
+                href="https://www.instagram.com/skybookdigital/"
+                target="_blank"
+              ></a>
+            </li>
+            <li>
+              <a
+                href="https://wa.me/message/YJ7R2IILRW7EL1"
+                target="_blank"
+              ></a>
+            </li>
+            <li>
+              <a
+                href="https://www.behance.net/skybook?tracking_source=search_users_recommended%7Cskybook%20digital"
+                target="_blank"
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- CONTACT SECTION END -->
+
+    <script>
+      const contactButtons = document.querySelectorAll("#contact-button");
+      const address = document.querySelector("#address");
+      const contact = document.querySelector("#contact");
+
+      contactButtons.forEach(function (button) {
+        button.addEventListener("click", function (e) {
+          this.classList.add("active");
+          if (button.nextElementSibling) {
+            // remove active class from button-dubai
+            button.nextElementSibling.classList.remove("active");
+            // show india address
+            address.innerHTML =
+              "A Division of Nucore Software Solutions<br />Fifth Floor, UL CyberPark, Calicut, Kerala – 673016, India.";
+            contact.innerText = "+91 9072324466";
+          } else {
+            // remove active class from button-india
+            button.previousElementSibling.classList.remove("active");
+            // show Dubai address
+            address.innerHTML =
+              "Dubai address<br />Fifth Floor, UL CyberPark, city, Dubai – 673016, United Arab Emirates.";
+            contact.innerText = "+97 12345678";
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
